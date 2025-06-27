@@ -31,6 +31,17 @@ iw reg get
 read -p "Please enter your new hostname: " hostname
 sudo hostnamectl set-hostname $hostname
 
+# Enable VNC
+echo
+echo
+echo "#################"
+echo "Enabling VNC"
+echo "#################"
+echo
+sudo ln -s /usr/lib/systemd/system/vncserver-x11-serviced.service /etc/systemd/system/multi-user.target.wants/vncserver-x11-serviced.service
+sudo systemctl start vncserver-x11-serviced
+
+
 # Download Iptables
 echo
 echo
@@ -44,15 +55,7 @@ sudo apt-get install -y iptables-persistent
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
 
 
-# Enable VNC
-echo
-echo
-echo "#################"
-echo "Enabling VNC"
-echo "#################"
-echo
-sudo ln -s /usr/lib/systemd/system/vncserver-x11-serviced.service /etc/systemd/system/multi-user.target.wants/vncserver-x11-serviced.service
-sudo systemctl start vncserver-x11-serviced
+
 
 
 # Install cert
@@ -92,14 +95,13 @@ npm install node-red-contrib-edge-trigger
 npm install node-red-contrib-persistent-global-context
 
 
-sudo mv sysctl.conf /etc/sysctl.conf
-sudo mv iptables.txt /etc/iptables/rules.v4
+sudo mv ~/sysctl.conf /etc/sysctl.conf
+sudo mv ~/iptable.txt /etc/iptables/rules.v4
 
 read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
 read -p "Set STEAME/STE-AME passkey: " PASSKEY
-
 
 sudo nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
 sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
