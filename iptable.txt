@@ -1,0 +1,69 @@
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+:UDP - [0:0]
+:TCP - [0:0]
+:ICMP - [0:0]
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A INPUT -p udp -m conntrack --ctstate NEW -j UDP
+-A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j TCP
+-A INPUT -p icmp -m conntrack --ctstate NEW -j ICMP
+
+# Accept ping requests.
+-A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+# Forward all outgoing traffic.
+-A FORWARD -i eth0 -o wlan0 -j ACCEPT
+
+# Port forwarding rules follow:
+-A FORWARD -i wlan0 -o eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A FORWARD -i wlan0 -o eth0 -p tcp -m tcp --dport 8193 --tcp-flags FIN,SYN,RST,ACK SYN -m conntrack --ctstate NEW -j ACCEPT
+
+
+# Forward all outgoing traffic.
+-A FORWARD -i eth0 -o wlan0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+
+# Accept SSH connections.
+-A TCP -p tcp -m tcp --dport 22 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 443 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 1800 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 3389 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 5900 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 10502 -j ACCEPT
+COMMIT
+
+*raw
+:PREROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+COMMIT
+
+*nat
+:PREROUTING ACCEPT [5056:1082707]
+:INPUT ACCEPT [1:60]
+:POSTROUTING ACCEPT [16:1369]
+:OUTPUT ACCEPT [14:1277]
+
+# NAT Port forwarding rules follow:
+-A PREROUTING -i wlan0 -p tcp -m tcp --dport 8193 -j DNAT --to-destination 192.168.0.100
+-A POSTROUTING -d 192.168.0.100/24 -o eth0 -p tcp -m tcp --dport 8193 -j SNAT --to-source 192.168.0.99
+
+# Route all outgoing traffic.
+-A POSTROUTING -o wlan0 -j MASQUERADE
+COMMIT
+
+*security
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+COMMIT
+
+*mangle
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
