@@ -1,20 +1,8 @@
 #!/bin/bash
 
-# Make sure the script is not run as root.
-if [ $(id -u) -eq 0 ]; then
-    echo
-    echo
-    echo "Please do not run as root."
-    exit 1
-fi
+read -p "Please enter your new hostname: " hostname
+sudo hostname $hostname
 
-# Make sure Node-RED is already installed.
-nodered_dir="/home/pi/.node-red"
-ls $nodered_dir >/dev/null 2>/dev/null
-if [ $? -ne 0 ]; then
-    echo 'Please install Node-RED before running this script.'
-	exit 1
-fi
 
 # Download Iptables
 echo
@@ -69,7 +57,6 @@ npm install node-red-contrib-persistent-global-context
 
 
 
-cat /sys/class/net/wlan0/address
 
 echo
 echo
@@ -78,4 +65,6 @@ echo "PDS Cytron MCA Setup Completed"
 echo "#####################################"
 echo
 echo "Please reboot for the changes to take effect."
+echo -n WLAN0 mac address: 
+cat /sys/class/net/wlan0/address
 echo "It will take some times to reboot."
