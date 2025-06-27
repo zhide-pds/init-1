@@ -1,8 +1,7 @@
 #!/bin/bash
 
 read -p "Please enter your new hostname: " hostname
-sudo hostname $hostname
-
+sudo hostnamectl set-hostname $hostname
 
 # Download Iptables
 echo
@@ -13,10 +12,9 @@ echo "#################"
 echo
 
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
-sudo apt-get install iptables-persistent
-sudo mv iptables.txt /etc/iptables/rules.v4
+sudo apt-get install -y iptables-persistent 
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
-sudo mv sysctl.conf /etc/sysctl.conf
+
 
 
 # Install cert
@@ -56,6 +54,21 @@ npm install node-red-contrib-edge-trigger
 npm install node-red-contrib-persistent-global-context
 
 
+sudo mv sysctl.conf /etc/sysctl.conf
+sudo mv iptables.txt /etc/iptables/rules.v4
+
+read -p "Set ETH1 interface IP: " ETH1
+sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1
+
+read -p "Set STEAME/STE-AME passkey: " passkey
+
+
+nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
+nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+
+nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
+nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+
 
 
 echo
@@ -67,4 +80,6 @@ echo
 echo "Please reboot for the changes to take effect."
 echo -n WLAN0 mac address: 
 cat /sys/class/net/wlan0/address
+echo -n ETH0 mac address: 
+cat /sys/class/net/eth0/address
 echo "It will take some times to reboot."
