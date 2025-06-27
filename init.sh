@@ -58,16 +58,16 @@ sudo mv sysctl.conf /etc/sysctl.conf
 sudo mv iptables.txt /etc/iptables/rules.v4
 
 read -p "Set ETH1 interface IP: " ETH1
-sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1
+sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1 + '/24'
 
 read -p "Set STEAME/STE-AME passkey: " passkey
 
 
-nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
-nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+sudo nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
+sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
 
-nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
-nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+sudo nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
+sudo nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
 
 
 
