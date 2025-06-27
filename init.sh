@@ -1,5 +1,33 @@
 #!/bin/bash
 
+# SET WIFI Country
+echo
+echo
+echo "#################"
+echo "SET Wifi Country to SG"
+echo "#################"
+echo
+
+COUNTRY_CODE="SG"
+WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
+# Backup existing config
+sudo cp "$WPA_CONF" "$WPA_CONF.bak"
+# Check if 'country=' line exists
+if grep -q '^country=' "$WPA_CONF"; then
+    # Replace existing line
+    sudo sed -i "s/^country=.*/country=$COUNTRY_CODE/" "$WPA_CONF"
+else
+    # Add country code at the top
+    sudo sed -i "1icountry=$COUNTRY_CODE" "$WPA_CONF"
+fi
+# Apply immediately (optional)
+sudo iw reg set "$COUNTRY_CODE"
+# Reload wpa_supplicant
+sudo wpa_cli -i wlan0 reconfigure
+# Optional: Show result
+echo "Country set to $COUNTRY_CODE"
+iw reg get
+
 read -p "Please enter your new hostname: " hostname
 sudo hostnamectl set-hostname $hostname
 
@@ -70,14 +98,14 @@ sudo mv iptables.txt /etc/iptables/rules.v4
 read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
-read -p "Set STEAME/STE-AME passkey: " passkey
+read -p "Set STEAME/STE-AME passkey: " PASSKEY
 
 
 sudo nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
-sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
 
 sudo nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
-sudo nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password @passkey 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+sudo nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
 
 
 
