@@ -16,6 +16,16 @@ sudo apt-get install -y iptables-persistent
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
 
 
+# Enable VNC
+echo
+echo
+echo "#################"
+echo "Enabling VNC"
+echo "#################"
+echo
+sudo ln -s /usr/lib/systemd/system/vncserver-x11-serviced.service /etc/systemd/system/multi-user.target.wants/vncserver-x11-serviced.service
+sudo systemctl start vncserver-x11-serviced
+
 
 # Install cert
 echo
@@ -58,7 +68,7 @@ sudo mv sysctl.conf /etc/sysctl.conf
 sudo mv iptables.txt /etc/iptables/rules.v4
 
 read -p "Set ETH1 interface IP: " ETH1
-sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1 + '/24'
+sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
 read -p "Set STEAME/STE-AME passkey: " passkey
 
