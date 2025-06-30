@@ -16,9 +16,13 @@ echo
 
 read -p "Please enter your new hostname: " hostname
 sudo hostnamectl set-hostname $hostname
+sudo raspi-config nonint do_hostname $hostname
 
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
+
+sudo raspi-config nonint do_wifi_country "$COUNTRY_CODE"
+
 sudo cp "$WPA_CONF" "$WPA_CONF.bak"
 if sudo grep -q '^country=' "$WPA_CONF"; then
     sudo sed -i "s/^country=.*/country=$COUNTRY_CODE/" "$WPA_CONF"
