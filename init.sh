@@ -10,9 +10,12 @@ curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chos
 echo
 echo
 echo "#################"
-echo "SET Wifi Country to SG"
+echo "SET Hostname and Wifi Country to SG"
 echo "#################"
 echo
+
+read -p "Please enter your new hostname: " hostname
+sudo hostnamectl set-hostname $hostname
 
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
@@ -27,8 +30,6 @@ sudo wpa_cli -i wlan0 reconfigure
 echo "Country set to $COUNTRY_CODE"
 iw reg get
 
-read -p "Please enter your new hostname: " hostname
-sudo hostnamectl set-hostname $hostname
 
 # Enable VNC
 echo
