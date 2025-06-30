@@ -60,7 +60,6 @@ curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysc
 
 
 
-
 # Install cert
 echo
 echo
@@ -81,6 +80,10 @@ echo "################"
 echo "Installing Nodes"
 echo "################"
 echo
+
+
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
+sudo mv default.json .node-red/flows.json 
 
 cd $nodered_dir
 npm install node-red-contrib-opcua-server
