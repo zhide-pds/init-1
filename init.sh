@@ -1,13 +1,9 @@
 #!/bin/bash
 
-
-# Define ANSI color codes
-BOLD="\e[1m"
-RED="\e[31m"
-GREEN="\e[32m"
-YELLOW="\e[33m"
-RESET="\e[0m" # Resets all attributes
-
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
 
 
 # SET WIFI Country
@@ -21,7 +17,7 @@ echo
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
 sudo cp "$WPA_CONF" "$WPA_CONF.bak"
-if grep -q '^country=' "$WPA_CONF"; then
+if sudo grep -q '^country=' "$WPA_CONF"; then
     sudo sed -i "s/^country=.*/country=$COUNTRY_CODE/" "$WPA_CONF"
 else
     sudo sed -i "1icountry=$COUNTRY_CODE" "$WPA_CONF"
@@ -53,11 +49,8 @@ echo "Downloading and setting up port forwarding"
 echo "#################"
 echo
 
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
+
 sudo apt-get install -y iptables-persistent 
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
-
-
 
 
 # Install cert
@@ -68,7 +61,6 @@ echo "Downloading and installing cert"
 echo "#################"
 echo
 
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
 cd /usr/share/ca-certificates
 sudo cp /home/pi/chosen.crt amead_ca.crt
 sudo dpkg-reconfigure ca-certificates
@@ -82,10 +74,8 @@ echo "################"
 echo
 
 
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
-sudo mv default.json .node-red/flows.json 
-
 cd $nodered_dir
+sudo mv /home/pi/default.json flows.json 
 npm install node-red-contrib-opcua-server
 npm install node-red-contrib-opcua-server-refresh
 npm install node-red-contrib-opcua
@@ -101,9 +91,6 @@ npm install node-red-contrib-edge-trigger
 npm install node-red-contrib-persistent-global-context
 npm install node-red-contrib-siemens-sentron
 npm install node-red-contrib-s7
-
-
-
 
 
 
@@ -133,9 +120,9 @@ echo "#####################################"
 echo
 echo
 echo
-echo ${BOLD}${GREEN}-n WLAN0 mac address: 
+echo WLAN0 mac address: 
 cat /sys/class/net/wlan0/address
 echo -n ETH0 mac address: 
-cat /sys/class/net/eth0/address${RESET}
+cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 echo "It will take some times to reboot."
