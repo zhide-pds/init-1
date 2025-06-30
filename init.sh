@@ -1,5 +1,15 @@
 #!/bin/bash
 
+
+# Define ANSI color codes
+BOLD="\e[1m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+RESET="\e[0m" # Resets all attributes
+
+
+
 # SET WIFI Country
 echo
 echo
@@ -10,21 +20,14 @@ echo
 
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
-# Backup existing config
 sudo cp "$WPA_CONF" "$WPA_CONF.bak"
-# Check if 'country=' line exists
 if grep -q '^country=' "$WPA_CONF"; then
-    # Replace existing line
     sudo sed -i "s/^country=.*/country=$COUNTRY_CODE/" "$WPA_CONF"
 else
-    # Add country code at the top
     sudo sed -i "1icountry=$COUNTRY_CODE" "$WPA_CONF"
 fi
-# Apply immediately (optional)
 sudo iw reg set "$COUNTRY_CODE"
-# Reload wpa_supplicant
 sudo wpa_cli -i wlan0 reconfigure
-# Optional: Show result
 echo "Country set to $COUNTRY_CODE"
 iw reg get
 
@@ -93,10 +96,18 @@ npm install node-red-contrib-network-tools
 npm install node-red-contrib-thingrest
 npm install node-red-contrib-edge-trigger
 npm install node-red-contrib-persistent-global-context
+npm install node-red-contrib-siemens-sentron
+npm install node-red-contrib-s7
+
+
+
+
 
 
 sudo mv ~/sysctl.conf /etc/sysctl.conf
 sudo mv ~/iptable.txt /etc/iptables/rules.v4
+
+sudo nmcli con add type wifi con-name "office" ifname wlan0 ssid "pdsol-2-2.4GHz" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "11223344556677889900aabbcc"
 
 read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
@@ -117,9 +128,11 @@ echo "#####################################"
 echo "PDS Cytron MCA Setup Completed"
 echo "#####################################"
 echo
-echo "Please reboot for the changes to take effect."
-echo -n WLAN0 mac address: 
+echo
+echo
+echo ${BOLD}${GREEN}-n WLAN0 mac address: 
 cat /sys/class/net/wlan0/address
 echo -n ETH0 mac address: 
-cat /sys/class/net/eth0/address
+cat /sys/class/net/eth0/address${RESET}
+echo "Please reboot for the changes to take effect."
 echo "It will take some times to reboot."
