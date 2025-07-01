@@ -4,6 +4,7 @@ curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/defa
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/settings.js
 
 
 # SET WIFI Country
@@ -14,9 +15,13 @@ echo "SET Hostname and Wifi Country to SG"
 echo "#################"
 echo
 
-read -p "Please enter your new hostname: " hostname
-sudo hostnamectl set-hostname $hostname
-sudo raspi-config nonint do_hostname $hostname
+read -p "Please enter your new hostname: " hn
+
+sudo cp /etc/hosts /etc/hosts.bak
+OLD_HOSTNAME=$(hostname)
+
+#sudo hostnamectl set-hostname $hostname
+sudo raspi-config nonint do_hostname $hn
 
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
@@ -80,6 +85,7 @@ echo
 
 
 cd $nodered_dir
+sudo mv /home/pi/settings.js settings.js
 sudo mv /home/pi/default.json flows.json 
 npm install node-red-contrib-opcua-server
 npm install node-red-contrib-opcua-server-refresh
