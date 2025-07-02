@@ -87,7 +87,6 @@ echo
 cd /home/pi/.node-red
 
 npm install node-red-contrib-opcua-server
-npm install node-red-contrib-opcua-server-refresh
 npm install node-red-contrib-opcua
 npm install node-red-omronplc
 npm install node-red-contrib-omron-fins
