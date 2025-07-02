@@ -111,6 +111,8 @@ sudo mv ~/sysctl.conf /etc/sysctl.conf
 sudo mv ~/iptable.txt /etc/iptables/rules.v4
 
 sudo nmcli con add type wifi con-name "office" ifname wlan0 ssid "pdsol-2-2.4GHz" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "11223344556677889900aabbcc"
+sudo nmcli con add type wifi con-name "test" ifname wlan0 ssid "loh&low" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "1q2w3e4r"
+
 
 read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
@@ -122,6 +124,7 @@ sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 80
 
 sudo nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
 sudo nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+
 
 
 
