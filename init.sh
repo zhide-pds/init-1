@@ -88,7 +88,7 @@ cd $nodered_dir
 sudo mv /home/pi/settings.js settings.js
 sudo mv /home/pi/default.json flows.json 
 npm install node-red-contrib-opcua-server
-npm install node-red-contrib-opcua-server-refresh
+#npm install node-red-contrib-opcua-server-refresh
 npm install node-red-contrib-opcua
 npm install node-red-omronplc
 npm install node-red-contrib-omron-fins
