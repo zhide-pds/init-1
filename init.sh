@@ -84,7 +84,7 @@ echo "################"
 echo
 
 
-cd $nodered_dir
+cd /home/pi/.node-red
 
 npm install node-red-contrib-opcua-server
 npm install node-red-contrib-opcua-server-refresh
