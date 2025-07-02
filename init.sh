@@ -85,10 +85,9 @@ echo
 
 
 cd $nodered_dir
-sudo mv /home/pi/settings.js settings.js
-sudo mv /home/pi/default.json flows.json 
+
 npm install node-red-contrib-opcua-server
-#npm install node-red-contrib-opcua-server-refresh
+npm install node-red-contrib-opcua-server-refresh
 npm install node-red-contrib-opcua
 npm install node-red-omronplc
 npm install node-red-contrib-omron-fins
@@ -102,6 +101,9 @@ npm install node-red-contrib-edge-trigger
 npm install node-red-contrib-persistent-global-context
 npm install node-red-contrib-siemens-sentron
 npm install node-red-contrib-s7
+
+sudo mv /home/pi/settings.js settings.js
+sudo mv /home/pi/default.json flows.json 
 
 
 
@@ -133,7 +135,7 @@ echo
 echo
 echo WLAN0 mac address: 
 cat /sys/class/net/wlan0/address
-echo -n ETH0 mac address: 
+echo ETH0 mac address: 
 cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 echo "It will take some times to reboot."
