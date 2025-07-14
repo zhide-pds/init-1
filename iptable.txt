@@ -29,7 +29,7 @@
 # Accept SSH connections.
 -A TCP -p tcp -m tcp --dport 22 -j ACCEPT
 -A TCP -p tcp -m tcp --dport 443 -j ACCEPT
--A TCP -p tcp -m tcp --dport 1800 -j ACCEPT
+-A TCP -p tcp -m tcp --dport 1880 -j ACCEPT
 -A TCP -p tcp -m tcp --dport 3389 -j ACCEPT
 -A TCP -p tcp -m tcp --dport 5900 -j ACCEPT
 -A TCP -p tcp -m tcp --dport 10502 -j ACCEPT
