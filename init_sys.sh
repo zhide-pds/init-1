@@ -3,7 +3,7 @@
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
 #curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
 #curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
+#curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/settings.js
 
 
@@ -71,9 +71,9 @@ echo "Downloading and installing cert"
 echo "#################"
 echo
 
-cd /usr/share/ca-certificates
-sudo cp /home/pi/chosen.crt amead_ca.crt
-sudo dpkg-reconfigure ca-certificates
+#cd /usr/share/ca-certificates
+#sudo cp /home/pi/chosen.crt amead_ca.crt
+#sudo dpkg-reconfigure ca-certificates
 
 # Install Node-RED nodes.
 echo
