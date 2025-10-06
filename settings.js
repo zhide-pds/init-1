@@ -480,6 +480,7 @@ module.exports = {
      *    global.get("os")
      */
     functionGlobalContext: {
+        bigInt:require("big-integer")
         // os:require('os'),
     },
 
