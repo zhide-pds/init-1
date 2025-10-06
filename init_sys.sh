@@ -113,7 +113,7 @@ sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.add
 
 
 nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden yes
-nmcli con modify STENGGGRP-MDS wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
+nmcli con modify IOT wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
 
 
 
@@ -131,4 +131,5 @@ cat /sys/class/net/wlan0/address
 echo ETH0 mac address: 
 cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
+
 echo "It will take some times to reboot."
