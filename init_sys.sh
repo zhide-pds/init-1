@@ -16,6 +16,8 @@ echo "#################"
 echo
 
 read -p "Please enter your new hostname: " hn
+read -p "Set STENGGGRP-MDS passkey: " PASSKEY
+read -p "Set ETH1 interface IP: " ETH1
 
 sudo cp /etc/hosts /etc/hosts.bak
 OLD_HOSTNAME=$(hostname)
@@ -107,10 +109,9 @@ sudo nmcli con add type wifi con-name "office" ifname wlan0 ssid "pdsol-2-2.4GHz
 sudo nmcli con add type wifi con-name "test" ifname wlan0 ssid "loh&low" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "1q2w3e4r"
 
 
-read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
-read -p "Set STENGGGRP-MDS passkey: " PASSKEY
+
 nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden yes
 nmcli con modify STENGGGRP-MDS wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
 
