@@ -105,6 +105,9 @@ sudo mv /home/pi/default_STAS.json flows.json
 #sudo mv ~/sysctl.conf /etc/sysctl.conf
 #sudo mv ~/iptable.txt /etc/iptables/rules.v4
 
+sudo nmcli connection delete office
+sudo nmcli connection delete test
+
 sudo nmcli con add type wifi con-name "office" ifname wlan0 ssid "pdsol-2-2.4GHz" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "11223344556677889900aabbcc"
 sudo nmcli con add type wifi con-name "test" ifname wlan0 ssid "loh&low" wifi-sec.key-mgmt wpa-psk wifi-sec.psk "1q2w3e4r"
 
@@ -133,3 +136,4 @@ cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 
 echo "It will take some times to reboot."
+
