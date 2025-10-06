@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
+curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default_STAS.json
 #curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
 #curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
 #curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
@@ -55,25 +55,19 @@ sudo systemctl start vncserver-x11-serviced
 echo
 echo
 echo "#################"
-echo "Downloading and setting up port forwarding"
+echo "Installing persistent iptables"
 echo "#################"
 echo
-
 
 sudo apt-get install -y iptables-persistent 
 
+# Install ansible
+#echo "################"
+#echo "Installing Ansible"
+#echo "################"
+#sudo apt install ansible
 
-# Install cert
-echo
-echo
-echo "#################"
-echo "Downloading and installing cert"
-echo "#################"
-echo
 
-#cd /usr/share/ca-certificates
-#sudo cp /home/pi/chosen.crt amead_ca.crt
-#sudo dpkg-reconfigure ca-certificates
 
 # Install Node-RED nodes.
 echo
@@ -86,6 +80,7 @@ echo
 
 cd /home/pi/.node-red
 
+npm install big-integer
 npm install node-red-contrib-opcua-server
 npm install node-red-contrib-opcua
 npm install node-red-omronplc
@@ -102,7 +97,7 @@ npm install node-red-contrib-siemens-sentron
 npm install node-red-contrib-s7
 
 sudo mv /home/pi/settings.js settings.js
-sudo mv /home/pi/default.json flows.json 
+sudo mv /home/pi/default_STAS.json flows.json 
 
 
 #sudo mv ~/sysctl.conf /etc/sysctl.conf
@@ -115,13 +110,9 @@ sudo nmcli con add type wifi con-name "test" ifname wlan0 ssid "loh&low" wifi-se
 read -p "Set ETH1 interface IP: " ETH1
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
-#read -p "Set STEAME/STE-AME passkey: " PASSKEY
-
-#sudo nmcli connection add type wifi con-name STEAME ifname wlan0 ssid STEAME
-#sudo nmcli connection modify STEAME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
-
-#sudo nmcli connection add type wifi con-name STE-AME ifname wlan0 ssid STE-AME
-#sudo nmcli connection modify STE-AME wifi-sec.key-mgmt wpa-eap 802-1x.eap peap 802-1x.identity "macd" 802-1x.password $PASSKEY 802-1x.phase2-auth mschapv2 802-1x.system-ca-certs yes
+read -p "Set STENGGGRP-MDS passkey: " PASSKEY
+nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden yes
+nmcli con modify STENGGGRP-MDS wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
 
 
 
@@ -129,7 +120,7 @@ sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.add
 echo
 echo
 echo "#####################################"
-echo "PDS Cytron MCA Setup Completed"
+echo "PDSV-STAS Setup Completed"
 echo "#####################################"
 echo
 echo
