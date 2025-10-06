@@ -119,7 +119,7 @@ nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden
 nmcli con modify IOT wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
 
 
-
+sudo systemctl restart nodered.service
 
 echo
 echo
@@ -136,4 +136,5 @@ cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 
 echo "It will take some times to reboot."
+
 
