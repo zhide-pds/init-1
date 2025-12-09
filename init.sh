@@ -86,6 +86,7 @@ echo
 
 cd /home/pi/.node-red
 
+npm install big-integer
 npm install node-red-contrib-opcua-server
 npm install node-red-contrib-opcua
 npm install node-red-omronplc
