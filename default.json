@@ -24,10 +24,10 @@
         "env": []
     },
     {
-        "id": "29bbc5778a16785f",
+        "id": "14f49ae6c62c7049",
         "type": "tab",
         "label": "Schneider Power Meter",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -54,6 +54,34 @@
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "61f9b802121fe5bc",
+        "type": "group",
+        "z": "14f49ae6c62c7049",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b91ce1eff2e37366",
+            "bc8a36cc93b4280f",
+            "ce645ca569cb90ef",
+            "3dd2dc9346f2823b",
+            "39ca0b7bcb732148",
+            "78c61c1db515ba64",
+            "458f097315ed659c",
+            "d4dbbebd2e8d38b5"
+        ],
+        "x": 514,
+        "y": 899,
+        "w": 1312,
+        "h": 202
     },
     {
         "id": "7e4cdd0309f5b525",
@@ -336,7 +364,7 @@
         "tcpHost": "127.0.0.1",
         "tcpPort": "502",
         "tcpType": "DEFAULT",
-        "serialPort": "COM15",
+        "serialPort": "/dev/ttyACM0",
         "serialType": "RTU-BUFFERD",
         "serialBaudrate": "19200",
         "serialDatabits": "8",
@@ -383,71 +411,6 @@
         "showErrors": false,
         "showWarnings": true,
         "showLogs": true
-    },
-    {
-        "id": "8f8f969b59034eab",
-        "type": "OpcUa-Endpoint",
-        "endpoint": "opc.tcp://192.168.214.241:4840",
-        "secpol": "None",
-        "secmode": "None",
-        "none": false,
-        "login": true,
-        "usercert": false,
-        "usercertificate": "",
-        "userprivatekey": ""
-    },
-    {
-        "id": "caeb1caccc4de3f4",
-        "type": "s7 endpoint",
-        "transport": "iso-on-tcp",
-        "address": "192.168.214.241",
-        "port": "102",
-        "rack": "0",
-        "slot": "2",
-        "localtsaphi": "01",
-        "localtsaplo": "00",
-        "remotetsaphi": "01",
-        "remotetsaplo": "00",
-        "connmode": "rack-slot",
-        "adapter": "",
-        "busaddr": "2",
-        "cycletime": "1000",
-        "timeout": "2000",
-        "name": "",
-        "vartable": [
-            {
-                "addr": "DB332,X2.6",
-                "name": "control ON / AUX ON"
-            },
-            {
-                "addr": "DB332,X2.1",
-                "name": "Program Running"
-            },
-            {
-                "addr": "DB332,X2.0",
-                "name": "M30 Impulse"
-            },
-            {
-                "addr": "DB332,X2.3",
-                "name": "Alarm"
-            },
-            {
-                "addr": "DB332,X2.2",
-                "name": "Mode AUTO"
-            },
-            {
-                "addr": "DB332,X2.4",
-                "name": "Production, spindle override"
-            },
-            {
-                "addr": "DB332,X2.7",
-                "name": "M300 Impulse"
-            },
-            {
-                "addr": "DB332,X2.5",
-                "name": "Bar Change"
-            }
-        ]
     },
     {
         "id": "ee696d902d902d8f",
@@ -4849,9 +4812,9 @@
         ]
     },
     {
-        "id": "ba32939462fac17d",
+        "id": "62d5f62ae3202307",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL1-2",
         "unitId": "1",
         "data": "voltage-L1L2",
@@ -4859,14 +4822,14 @@
         "y": 120,
         "wires": [
             [
-                "ba3ac80c14af5d5c"
+                "aecd0a35a8944256"
             ]
         ]
     },
     {
-        "id": "ba3ac80c14af5d5c",
+        "id": "aecd0a35a8944256",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -4884,15 +4847,15 @@
         "y": 120,
         "wires": [
             [
-                "b301ded6ae52e5cc"
+                "51337e42db70ca2c"
             ],
             []
         ]
     },
     {
-        "id": "ba360d8e96849f8d",
+        "id": "a84a18740c34967a",
         "type": "inject",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "props": [
             {
@@ -4914,40 +4877,26 @@
         "y": 120,
         "wires": [
             [
-                "ba32939462fac17d",
-                "3e6b6d23763d4b63",
-                "f462e02c75158787",
-                "2b6c13feda9a1cd8",
-                "08dd679ddec21d18",
-                "12b6c0f771027397",
-                "a4f327c276dbd768",
-                "f358243ca388a920",
-                "9b9c8e4a57177053",
-                "0ba29ab3b1e95381",
-                "04181328d252b6c5",
-                "f451b333d9eb2a6f"
+                "62d5f62ae3202307",
+                "fc33a4cc6c42b790",
+                "cc4c5dba6a070a60",
+                "efcf7139f17efb39",
+                "f2f7b54123c61077",
+                "bceba366ce0b728a",
+                "3f0528f141c9706b",
+                "2c26d2de12aaae48",
+                "f1efc9195131f0f2",
+                "2f70e8802ef15652",
+                "b33e50dad6d18352",
+                "ad02797d63c7fc2f",
+                "cddfc570691b07fe"
             ]
         ]
     },
     {
-        "id": "b301ded6ae52e5cc",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 120,
-        "wires": [
-            [
-                "84dfbd4dae26bf18"
-            ]
-        ]
-    },
-    {
-        "id": "84dfbd4dae26bf18",
+        "id": "51337e42db70ca2c",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -4978,18 +4927,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 120,
         "wires": [
             [
-                "b1236b35d17b9460"
+                "5937ba0bf7e77158"
             ]
         ]
     },
     {
-        "id": "3e6b6d23763d4b63",
+        "id": "fc33a4cc6c42b790",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL2-3",
         "unitId": "1",
         "data": "voltage-L2L3",
@@ -4997,14 +4946,14 @@
         "y": 180,
         "wires": [
             [
-                "166bca30ea5d0566"
+                "b7e6bd6f197a2190"
             ]
         ]
     },
     {
-        "id": "166bca30ea5d0566",
+        "id": "b7e6bd6f197a2190",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5022,30 +4971,15 @@
         "y": 180,
         "wires": [
             [
-                "8dda5e7a34c07ce5"
+                "efc53755c32c175f"
             ],
             []
         ]
     },
     {
-        "id": "8dda5e7a34c07ce5",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 180,
-        "wires": [
-            [
-                "6fbe956b3e411f52"
-            ]
-        ]
-    },
-    {
-        "id": "6fbe956b3e411f52",
+        "id": "efc53755c32c175f",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5076,18 +5010,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 180,
         "wires": [
             [
-                "b330c07cd837a76f"
+                "b18a622ede7deb86"
             ]
         ]
     },
     {
-        "id": "f462e02c75158787",
+        "id": "cc4c5dba6a070a60",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL3-1",
         "unitId": "1",
         "data": "voltage-L3L1",
@@ -5095,14 +5029,14 @@
         "y": 240,
         "wires": [
             [
-                "831e816b28d63241"
+                "fbdf9524dd5ff0e5"
             ]
         ]
     },
     {
-        "id": "831e816b28d63241",
+        "id": "fbdf9524dd5ff0e5",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5120,30 +5054,15 @@
         "y": 240,
         "wires": [
             [
-                "2757a293f30e5020"
+                "b588532abe89403c"
             ],
             []
         ]
     },
     {
-        "id": "2757a293f30e5020",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 240,
-        "wires": [
-            [
-                "69478c86fe38e53e"
-            ]
-        ]
-    },
-    {
-        "id": "69478c86fe38e53e",
+        "id": "b588532abe89403c",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5174,18 +5093,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 240,
         "wires": [
             [
-                "275b31f19c382b48"
+                "bbb0e5f25eda5beb"
             ]
         ]
     },
     {
-        "id": "2b6c13feda9a1cd8",
+        "id": "efcf7139f17efb39",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL1-N",
         "unitId": "1",
         "data": "voltage-L1N",
@@ -5193,14 +5112,14 @@
         "y": 300,
         "wires": [
             [
-                "01019d41945f8a3c"
+                "4c6d94e80194727c"
             ]
         ]
     },
     {
-        "id": "01019d41945f8a3c",
+        "id": "4c6d94e80194727c",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5218,30 +5137,15 @@
         "y": 300,
         "wires": [
             [
-                "4d82cd620d2d4b69"
+                "ab1b653d15315c27"
             ],
             []
         ]
     },
     {
-        "id": "4d82cd620d2d4b69",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 300,
-        "wires": [
-            [
-                "6292c6ac0235b05b"
-            ]
-        ]
-    },
-    {
-        "id": "6292c6ac0235b05b",
+        "id": "ab1b653d15315c27",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5272,16 +5176,16 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 300,
         "wires": [
             []
         ]
     },
     {
-        "id": "08dd679ddec21d18",
+        "id": "f2f7b54123c61077",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL2-N",
         "unitId": "1",
         "data": "voltage-L2N",
@@ -5289,14 +5193,14 @@
         "y": 360,
         "wires": [
             [
-                "e65f4592a8a67e9b"
+                "ea040cec858ea31b"
             ]
         ]
     },
     {
-        "id": "e65f4592a8a67e9b",
+        "id": "ea040cec858ea31b",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5314,30 +5218,15 @@
         "y": 360,
         "wires": [
             [
-                "32c011bd71861052"
+                "60df0e1173b7ab4c"
             ],
             []
         ]
     },
     {
-        "id": "32c011bd71861052",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 360,
-        "wires": [
-            [
-                "d29e8c6eb0141147"
-            ]
-        ]
-    },
-    {
-        "id": "d29e8c6eb0141147",
+        "id": "60df0e1173b7ab4c",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5368,16 +5257,16 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 360,
         "wires": [
             []
         ]
     },
     {
-        "id": "12b6c0f771027397",
+        "id": "bceba366ce0b728a",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "VL3-N",
         "unitId": "1",
         "data": "voltage-L3N",
@@ -5385,14 +5274,14 @@
         "y": 420,
         "wires": [
             [
-                "03d8767c425ef1ca"
+                "9bb4ca6acd010c01"
             ]
         ]
     },
     {
-        "id": "03d8767c425ef1ca",
+        "id": "9bb4ca6acd010c01",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5410,30 +5299,15 @@
         "y": 420,
         "wires": [
             [
-                "d016e7a3bd7d2878"
+                "17369245a9e61d8d"
             ],
             []
         ]
     },
     {
-        "id": "d016e7a3bd7d2878",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 420,
-        "wires": [
-            [
-                "bc2de7612a2fb696"
-            ]
-        ]
-    },
-    {
-        "id": "bc2de7612a2fb696",
+        "id": "17369245a9e61d8d",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5464,16 +5338,16 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 420,
         "wires": [
             []
         ]
     },
     {
-        "id": "a4f327c276dbd768",
+        "id": "3f0528f141c9706b",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "Total Active Power",
         "unitId": "1",
         "data": "actPowerTot",
@@ -5481,14 +5355,14 @@
         "y": 660,
         "wires": [
             [
-                "4b9403238ad9209b"
+                "afe20b707763cdef"
             ]
         ]
     },
     {
-        "id": "4b9403238ad9209b",
+        "id": "afe20b707763cdef",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5506,30 +5380,15 @@
         "y": 660,
         "wires": [
             [
-                "ba2168d94d30a5e8"
+                "0c71142d09d73539"
             ],
             []
         ]
     },
     {
-        "id": "ba2168d94d30a5e8",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 660,
-        "wires": [
-            [
-                "a4ba01f128e59d49"
-            ]
-        ]
-    },
-    {
-        "id": "a4ba01f128e59d49",
+        "id": "0c71142d09d73539",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5560,18 +5419,19 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 660,
         "wires": [
             [
-                "f24bb983f97c1545"
+                "b91ce1eff2e37366",
+                "937f985360f2bdf7"
             ]
         ]
     },
     {
-        "id": "f358243ca388a920",
+        "id": "2c26d2de12aaae48",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "I1",
         "unitId": "1",
         "data": "current-P1",
@@ -5579,14 +5439,14 @@
         "y": 480,
         "wires": [
             [
-                "4026e6cf58d26a85"
+                "7be226e94d7d3232"
             ]
         ]
     },
     {
-        "id": "4026e6cf58d26a85",
+        "id": "7be226e94d7d3232",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5604,30 +5464,15 @@
         "y": 480,
         "wires": [
             [
-                "8545ac02c448c1ad"
+                "1b76ccad2453731f"
             ],
             []
         ]
     },
     {
-        "id": "8545ac02c448c1ad",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 480,
-        "wires": [
-            [
-                "be03f4400a07c159"
-            ]
-        ]
-    },
-    {
-        "id": "be03f4400a07c159",
+        "id": "1b76ccad2453731f",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5658,18 +5503,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 480,
         "wires": [
             [
-                "a799b18ed1998e12"
+                "11386f318995ccfe"
             ]
         ]
     },
     {
-        "id": "9b9c8e4a57177053",
+        "id": "f1efc9195131f0f2",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "I2",
         "unitId": "1",
         "data": "current-P2",
@@ -5677,14 +5522,14 @@
         "y": 540,
         "wires": [
             [
-                "48f0f3e5cd7c3381"
+                "0b98f9892d50c301"
             ]
         ]
     },
     {
-        "id": "48f0f3e5cd7c3381",
+        "id": "0b98f9892d50c301",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5702,30 +5547,15 @@
         "y": 540,
         "wires": [
             [
-                "565debae999ec66a"
+                "ba3ba1f68aaa7afd"
             ],
             []
         ]
     },
     {
-        "id": "565debae999ec66a",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 540,
-        "wires": [
-            [
-                "31bedf3be92a03f3"
-            ]
-        ]
-    },
-    {
-        "id": "31bedf3be92a03f3",
+        "id": "ba3ba1f68aaa7afd",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5756,18 +5586,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 540,
         "wires": [
             [
-                "5b43c0cbcab54895"
+                "907570311e18ef56"
             ]
         ]
     },
     {
-        "id": "0ba29ab3b1e95381",
+        "id": "2f70e8802ef15652",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "I3",
         "unitId": "1",
         "data": "current-P3",
@@ -5775,14 +5605,14 @@
         "y": 600,
         "wires": [
             [
-                "46e45c4d44ce031c"
+                "4219466722d6be35"
             ]
         ]
     },
     {
-        "id": "46e45c4d44ce031c",
+        "id": "4219466722d6be35",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5800,30 +5630,15 @@
         "y": 600,
         "wires": [
             [
-                "766f9212667bbbef"
+                "976c9789939d0885"
             ],
             []
         ]
     },
     {
-        "id": "766f9212667bbbef",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 600,
-        "wires": [
-            [
-                "c2564587f93d9660"
-            ]
-        ]
-    },
-    {
-        "id": "c2564587f93d9660",
+        "id": "976c9789939d0885",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5854,18 +5669,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 600,
         "wires": [
             [
-                "9616a313b136546e"
+                "af07b7d5af4b1a82"
             ]
         ]
     },
     {
-        "id": "04181328d252b6c5",
+        "id": "b33e50dad6d18352",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "Total PF",
         "unitId": "1",
         "data": "pFactorTot",
@@ -5873,14 +5688,14 @@
         "y": 720,
         "wires": [
             [
-                "69a979365d6c4342"
+                "243ebf58fde71d71"
             ]
         ]
     },
     {
-        "id": "69a979365d6c4342",
+        "id": "243ebf58fde71d71",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5898,30 +5713,15 @@
         "y": 720,
         "wires": [
             [
-                "cfd02fc2f6eb5f3b"
+                "152854595d02a5a8"
             ],
             []
         ]
     },
     {
-        "id": "cfd02fc2f6eb5f3b",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 720,
-        "wires": [
-            [
-                "f12c4392b96d6e2c"
-            ]
-        ]
-    },
-    {
-        "id": "f12c4392b96d6e2c",
+        "id": "152854595d02a5a8",
         "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "data": "payload",
         "dataType": "msg",
@@ -5952,18 +5752,18 @@
         "fanOutMultipleResult": true,
         "setTopic": false,
         "outputs": 1,
-        "x": 1090,
+        "x": 850,
         "y": 720,
         "wires": [
             [
-                "c3542e15cb9f9f82"
+                "7ead14cd5b6380b2"
             ]
         ]
     },
     {
-        "id": "f451b333d9eb2a6f",
+        "id": "ad02797d63c7fc2f",
         "type": "pm5000",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "Consumption",
         "unitId": "1",
         "data": "toEnergyActImp",
@@ -5971,14 +5771,14 @@
         "y": 780,
         "wires": [
             [
-                "8ca73238672b34ff"
+                "cfc5db6be0a257d3"
             ]
         ]
     },
     {
-        "id": "8ca73238672b34ff",
+        "id": "cfc5db6be0a257d3",
         "type": "modbus-flex-getter",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "showStatusActivities": false,
         "showErrors": false,
@@ -5996,72 +5796,15 @@
         "y": 780,
         "wires": [
             [
-                "86576dce2b8db0a1"
+                "382e88a502939452"
             ],
             []
         ]
     },
     {
-        "id": "86576dce2b8db0a1",
-        "type": "converter",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "unitId": "",
-        "data": "",
-        "x": 840,
-        "y": 780,
-        "wires": [
-            [
-                "9b9369823e382750"
-            ]
-        ]
-    },
-    {
-        "id": "9b9369823e382750",
-        "type": "buffer-parser",
-        "z": "29bbc5778a16785f",
-        "name": "",
-        "data": "payload",
-        "dataType": "msg",
-        "specification": "spec",
-        "specificationType": "ui",
-        "items": [
-            {
-                "type": "bigint64be",
-                "name": "item1",
-                "offset": 0,
-                "length": 1,
-                "offsetbit": 0,
-                "scale": "1",
-                "mask": ""
-            }
-        ],
-        "swap1": "",
-        "swap2": "",
-        "swap3": "",
-        "swap1Type": "swap",
-        "swap2Type": "swap",
-        "swap3Type": "swap",
-        "msgProperty": "payload",
-        "msgPropertyType": "str",
-        "resultType": "value",
-        "resultTypeType": "return",
-        "multipleResult": true,
-        "fanOutMultipleResult": true,
-        "setTopic": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 780,
-        "wires": [
-            [
-                "29ac057414da488e"
-            ]
-        ]
-    },
-    {
-        "id": "0692d896a527198d",
+        "id": "f59185d495a30454",
         "type": "opcua-compact-server",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "port": "10502",
         "endpoint": "",
         "productUri": "",
@@ -6093,15 +5836,15 @@
         "delayToInit": "1000",
         "delayToClose": "200",
         "serverShutdownTimeout": "100",
-        "addressSpaceScript": "function constructAlarmAddressSpace(server, addressSpace, eventObjects, done) {\n  // server = the created node-opcua server\n  // addressSpace = address space of the node-opcua server\n  // eventObjects = add event variables here to hold them in memory from this script\n\n  // internal sandbox objects are:\n  // node = the compact server node,\n  // coreServer = core compact server object for debug and access to NodeOPCUA\n  // this.sandboxNodeContext = node context node-red\n  // this.sandboxFlowContext = flow context node-red\n  // this.sandboxGlobalContext = global context node-red\n  // this.sandboxEnv = env variables\n  // timeout and interval functions as expected from nodejs\n\n  const opcua = coreServer.choreCompact.opcua;\n  const LocalizedText = opcua.LocalizedText;\n  const namespace = addressSpace.getOwnNamespace();\n\n  const Variant = opcua.Variant;\n  const DataType = opcua.DataType;\n  const DataValue = opcua.DataValue;\n\n  var flexServerInternals = this;\n\n  // this.sandboxFlowContext.set(\"ValuePower\", 0);\n  // this.setInterval(() => {\n  //   flexServerInternals.sandboxFlowContext.set(\n  //     \"ValuePower\",\n  //     Math.random() + 50.0\n  //   );\n  // }, 500);\n  // this.sandboxFlowContext.set(\"ValueC1\", 0);\n  // this.sandboxFlowContext.set(\"ValueC2\", 0);\n  // this.sandboxFlowContext.set(\"ValueC3\", 0);\n  // this.sandboxFlowContext.set(\"ValueV1\", 0);\n  // this.sandboxFlowContext.set(\"ValueV2\", 0);\n  // this.sandboxFlowContext.set(\"ValueV3\", 0);\n  // this.sandboxFlowContext.set(\"ValuePF\", 0);\n  // this.sandboxFlowContext.set(\"ValueConsumption\", 0);\n\n\n  // this.sandboxFlowContext.set(\"isoOutput1\", 0);\n  // this.setInterval(() => {\n  //   flexServerInternals.sandboxFlowContext.set(\n  //     \"isoOutput1\",\n  //     Math.random() + 10.0\n  //   );\n  // }, 500);\n\n  // this.sandboxFlowContext.set(\"isoOutput2\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput3\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput4\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput5\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput6\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput7\", 0);\n  // this.sandboxFlowContext.set(\"isoOutput8\", 0);\n\n  coreServer.debugLog(\"init dynamic address space\");\n  const rootFolder = addressSpace.findNode(\"RootFolder\");\n\n  node.warn(\"construct new address space for OPC UA\");\n\n  const myDevice = namespace.addFolder(rootFolder.objects, {\n    \"browseName\": \"Edge Device\"\n  });\n  // const gpioFolder = namespace.addFolder(myDevice, { \"browseName\": \"GPIO\" });\n  const PowerMeterInputs = namespace.addFolder(myDevice, {\n    \"browseName\": \"Power Meter\"\n  });\n  const DigitalInputs = namespace.addFolder(myDevice, {\n    \"browseName\": \"Digital Inputs\"\n  });\n  const DigitalOutputs = namespace.addFolder(myDevice, {\n    \"browseName\": \"Digital Outputs\"\n  });\n  const DeviceStats = namespace.addFolder(myDevice, {\n    \"browseName\": \"Device Stats\"\n  });\n  const ValueHeartbeat = namespace.addVariable({\n    \"organizedBy\": DeviceStats,\n    \"browseName\": \"ValueHeartbeat\",\n    \"nodeId\": \"ns=1;s=ValueHeartbeat\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueHeartbeat\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueHeartbeat\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n  const ValuePower = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValuePower\",\n    \"nodeId\": \"ns=1;s=ValuePower\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValuePower\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValuePower\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC1 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC1\",\n    \"nodeId\": \"ns=1;s=ValueC1\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC2 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC2\",\n    \"nodeId\": \"ns=1;s=ValueC2\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC3 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC3\",\n    \"nodeId\": \"ns=1;s=ValueC3\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV1 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV1\",\n    \"nodeId\": \"ns=1;s=ValueV1\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV2 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV2\",\n    \"nodeId\": \"ns=1;s=ValueV2\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV3 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV3\",\n    \"nodeId\": \"ns=1;s=ValueV3\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValuePF = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValuePF\",\n    \"nodeId\": \"ns=1;s=ValuePF\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValuePF\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValuePF\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueConsumption = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueConsumption\",\n    \"nodeId\": \"ns=1;s=ValueConsumption\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueConsumption\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueConsumption\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI1 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI1\",\n    \"nodeId\": \"ns=1;s=DI1\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI2 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI2\",\n    \"nodeId\": \"ns=1;s=DI2\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI3 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI3\",\n    \"nodeId\": \"ns=1;s=DI3\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI4 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI4\",\n    \"nodeId\": \"ns=1;s=DI4\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI4\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI4\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n\n\n  const DO1 = namespace.addVariable({\n    \"organizedBy\": DigitalOutputs,\n    \"browseName\": \"DO1\",\n    \"nodeId\": \"ns=1;s=DO1\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxGlobalContext.set(\n          \"DO1\",\n          variant.value\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DO2 = namespace.addVariable({\n    \"organizedBy\": DigitalOutputs,\n    \"browseName\": \"DO2\",\n    \"nodeId\": \"ns=1;s=DO2\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxGlobalContext.set(\n          \"DO2\",\n          variant.value\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DO3 = namespace.addVariable({\n    \"organizedBy\": DigitalOutputs,\n    \"browseName\": \"DO3\",\n    \"nodeId\": \"ns=1;s=DO3\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxGlobalContext.set(\n          \"DO3\",\n          variant.value\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DO4 = namespace.addVariable({\n    \"organizedBy\": DigitalOutputs,\n    \"browseName\": \"DO4\",\n    \"nodeId\": \"ns=1;s=DO4\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO4\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxGlobalContext.set(\n          \"DO4\",\n          variant.value\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n\n  //------------------------------------------------------------------------------\n  // Add a view\n  //------------------------------------------------------------------------------\n  const viewPowerMeter = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"Power Meter\"\n  });\n\n  const viewDI = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"DI\"\n  });\n\n  const viewDO = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"DO\"\n  });\n\n  const viewDeviceStats = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"Device Stats\"\n  });\n\n  viewDeviceStats.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueHeartbeat.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValuePower.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC1.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC2.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC3.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV1.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV2.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV3.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValuePF.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueConsumption.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI1.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI2.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI3.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI4.nodeId\n  });\n\n  viewDO.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DO1.nodeId\n  });\n\n  viewDO.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DO2.nodeId\n  });\n\n  viewDO.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DO3.nodeId\n  });\n\n  viewDO.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DO4.nodeId\n  });\n\n  coreServer.debugLog(\"create dynamic address space done\");\n  node.warn(\"construction of new address space for OPC UA done\");\n\n  done();\n}\n",
-        "x": 160,
+        "addressSpaceScript": "function constructAlarmAddressSpace(server, addressSpace, eventObjects, done) {\n  // server = the created node-opcua server\n  // addressSpace = address space of the node-opcua server\n  // eventObjects = add event variables here to hold them in memory from this script\n\n  // internal sandbox objects are:\n  // node = the compact server node,\n  // coreServer = core compact server object for debug and access to NodeOPCUA\n  // this.sandboxNodeContext = node context node-red\n  // this.sandboxFlowContext = flow context node-red\n  // this.sandboxGlobalContext = global context node-red\n  // this.sandboxEnv = env variables\n  // timeout and interval functions as expected from nodejs\n\n  const opcua = coreServer.choreCompact.opcua;\n  const LocalizedText = opcua.LocalizedText;\n  const namespace = addressSpace.getOwnNamespace();\n\n  const Variant = opcua.Variant;\n  const DataType = opcua.DataType;\n  const DataValue = opcua.DataValue;\n\n  var flexServerInternals = this;\n\n\n  coreServer.debugLog(\"init dynamic address space\");\n  const rootFolder = addressSpace.findNode(\"RootFolder\");\n\n  node.warn(\"construct new address space for OPC UA\");\n\n  const myDevice = namespace.addFolder(rootFolder.objects, {\n    \"browseName\": \"Edge Device\"\n  });\n  // const gpioFolder = namespace.addFolder(myDevice, { \"browseName\": \"GPIO\" });\n  const PowerMeterInputs = namespace.addFolder(myDevice, {\n    \"browseName\": \"Power Meter\"\n  });\n  const DigitalInputs = namespace.addFolder(myDevice, {\n    \"browseName\": \"Digital Inputs\"\n  });\n  // const DigitalOutputs = namespace.addFolder(myDevice, {\n  //   \"browseName\": \"Digital Outputs\"\n  // });\n  const DeviceStats = namespace.addFolder(myDevice, {\n    \"browseName\": \"Device Stats\"\n  });\n  const MachineStats = namespace.addFolder(myDevice, {\n    \"browseName\": \"Machine Stats\"\n  });\n  const ValueHeartbeat = namespace.addVariable({\n    \"organizedBy\": DeviceStats,\n    \"browseName\": \"ValueHeartbeat\",\n    \"nodeId\": \"ns=1;s=ValueHeartbeat\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueHeartbeat\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueHeartbeat\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n  const ValuePartCount = namespace.addVariable({\n    \"organizedBy\": MachineStats,\n    \"browseName\": \"ValuePartCount\",\n    \"nodeId\": \"ns=1;s=ValuePartCount\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValuePartCount\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValuePartCount\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n  const ValueMachineStatus = namespace.addVariable({\n    \"organizedBy\": MachineStats,\n    \"browseName\": \"ValueMachineStatus\",\n    \"nodeId\": \"ns=1;s=ValueMachineStatus\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueMachineStatus\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueMachineStatus\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n  const ValuePower = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValuePower\",\n    \"nodeId\": \"ns=1;s=ValuePower\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValuePower\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValuePower\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC1 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC1\",\n    \"nodeId\": \"ns=1;s=ValueC1\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC2 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC2\",\n    \"nodeId\": \"ns=1;s=ValueC2\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueC3 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueC3\",\n    \"nodeId\": \"ns=1;s=ValueC3\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueC3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueC3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV1 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV1\",\n    \"nodeId\": \"ns=1;s=ValueV1\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV2 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV2\",\n    \"nodeId\": \"ns=1;s=ValueV2\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueV3 = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueV3\",\n    \"nodeId\": \"ns=1;s=ValueV3\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueV3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueV3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValuePF = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValuePF\",\n    \"nodeId\": \"ns=1;s=ValuePF\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValuePF\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValuePF\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueConsumption = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueConsumption\",\n    \"nodeId\": \"ns=1;s=ValueConsumption\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueConsumption\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueConsumption\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const ValueReactive = namespace.addVariable({\n    \"organizedBy\": PowerMeterInputs,\n    \"browseName\": \"ValueReactive\",\n    \"nodeId\": \"ns=1;s=ValueReactive\",\n    \"dataType\": \"Double\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Double,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"ValueReactive\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"ValueReactive\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI1 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI1\",\n    \"nodeId\": \"ns=1;s=DI1\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI1\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI1\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI2 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI2\",\n    \"nodeId\": \"ns=1;s=DI2\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI2\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI2\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI3 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI3\",\n    \"nodeId\": \"ns=1;s=DI3\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI3\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI3\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n  const DI4 = namespace.addVariable({\n    \"organizedBy\": DigitalInputs,\n    \"browseName\": \"DI4\",\n    \"nodeId\": \"ns=1;s=DI4\",\n    \"dataType\": \"Boolean\",\n    \"value\": {\n      \"get\": function () {\n        return new Variant({\n          \"dataType\": DataType.Boolean,\n          \"value\": flexServerInternals.sandboxFlowContext.get(\"DI4\")\n        });\n      },\n      \"set\": function (variant) {\n        flexServerInternals.sandboxFlowContext.set(\n          \"DI4\",\n          parseFloat(variant.value)\n        );\n        return opcua.StatusCodes.Good;\n      }\n    }\n  });\n\n\n\n  // const DO1 = namespace.addVariable({\n  //   \"organizedBy\": DigitalOutputs,\n  //   \"browseName\": \"DO1\",\n  //   \"nodeId\": \"ns=1;s=DO1\",\n  //   \"dataType\": \"Boolean\",\n  //   \"value\": {\n  //     \"get\": function () {\n  //       return new Variant({\n  //         \"dataType\": DataType.Boolean,\n  //         \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO1\")\n  //       });\n  //     },\n  //     \"set\": function (variant) {\n  //       flexServerInternals.sandboxGlobalContext.set(\n  //         \"DO1\",\n  //         variant.value\n  //       );\n  //       return opcua.StatusCodes.Good;\n  //     }\n  //   }\n  // });\n\n  // const DO2 = namespace.addVariable({\n  //   \"organizedBy\": DigitalOutputs,\n  //   \"browseName\": \"DO2\",\n  //   \"nodeId\": \"ns=1;s=DO2\",\n  //   \"dataType\": \"Boolean\",\n  //   \"value\": {\n  //     \"get\": function () {\n  //       return new Variant({\n  //         \"dataType\": DataType.Boolean,\n  //         \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO2\")\n  //       });\n  //     },\n  //     \"set\": function (variant) {\n  //       flexServerInternals.sandboxGlobalContext.set(\n  //         \"DO2\",\n  //         variant.value\n  //       );\n  //       return opcua.StatusCodes.Good;\n  //     }\n  //   }\n  // });\n\n  // const DO3 = namespace.addVariable({\n  //   \"organizedBy\": DigitalOutputs,\n  //   \"browseName\": \"DO3\",\n  //   \"nodeId\": \"ns=1;s=DO3\",\n  //   \"dataType\": \"Boolean\",\n  //   \"value\": {\n  //     \"get\": function () {\n  //       return new Variant({\n  //         \"dataType\": DataType.Boolean,\n  //         \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO3\")\n  //       });\n  //     },\n  //     \"set\": function (variant) {\n  //       flexServerInternals.sandboxGlobalContext.set(\n  //         \"DO3\",\n  //         variant.value\n  //       );\n  //       return opcua.StatusCodes.Good;\n  //     }\n  //   }\n  // });\n\n  // const DO4 = namespace.addVariable({\n  //   \"organizedBy\": DigitalOutputs,\n  //   \"browseName\": \"DO4\",\n  //   \"nodeId\": \"ns=1;s=DO4\",\n  //   \"dataType\": \"Boolean\",\n  //   \"value\": {\n  //     \"get\": function () {\n  //       return new Variant({\n  //         \"dataType\": DataType.Boolean,\n  //         \"value\": flexServerInternals.sandboxGlobalContext.get(\"DO4\")\n  //       });\n  //     },\n  //     \"set\": function (variant) {\n  //       flexServerInternals.sandboxGlobalContext.set(\n  //         \"DO4\",\n  //         variant.value\n  //       );\n  //       return opcua.StatusCodes.Good;\n  //     }\n  //   }\n  // });\n\n\n  //------------------------------------------------------------------------------\n  // Add a view\n  //------------------------------------------------------------------------------\n  const viewMachine = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"Machine\"\n  });\n\n  const viewPowerMeter = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"Power Meter\"\n  });\n\n  const viewDI = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"DI\"\n  });\n\n  const viewDO = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"DO\"\n  });\n\n  const viewDeviceStats = namespace.addView({\n    \"organizedBy\": rootFolder.views,\n    \"browseName\": \"Device Stats\"\n  });\n\n  viewDeviceStats.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueHeartbeat.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValuePower.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC1.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC2.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueC3.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV1.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV2.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueV3.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValuePF.nodeId\n  });\n\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueConsumption.nodeId\n  });\n  viewPowerMeter.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueReactive.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI1.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI2.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI3.nodeId\n  });\n\n  viewDI.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": DI4.nodeId\n  });\n\n  // viewDO.addReference({\n  //   \"referenceType\": \"Organizes\",\n  //   \"nodeId\": DO1.nodeId\n  // });\n\n  // viewDO.addReference({\n  //   \"referenceType\": \"Organizes\",\n  //   \"nodeId\": DO2.nodeId\n  // });\n\n  // viewDO.addReference({\n  //   \"referenceType\": \"Organizes\",\n  //   \"nodeId\": DO3.nodeId\n  // });\n\n  // viewDO.addReference({\n  //   \"referenceType\": \"Organizes\",\n  //   \"nodeId\": DO4.nodeId\n  // });\n\n  viewMachine.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValuePartCount.nodeId\n  });\n\n  viewMachine.addReference({\n    \"referenceType\": \"Organizes\",\n    \"nodeId\": ValueMachineStatus.nodeId\n  });\n\n  coreServer.debugLog(\"create dynamic address space done\");\n  node.warn(\"construction of new address space for OPC UA done\");\n\n  done();\n}\n",
+        "x": 140,
         "y": 60,
         "wires": []
     },
     {
-        "id": "f24bb983f97c1545",
+        "id": "f2cf401fa6603d39",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValuePower",
         "rules": [
             {
@@ -6124,9 +5867,9 @@
         ]
     },
     {
-        "id": "a799b18ed1998e12",
+        "id": "d67127bea71032a2",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueC1",
         "rules": [
             {
@@ -6149,9 +5892,9 @@
         ]
     },
     {
-        "id": "5b43c0cbcab54895",
+        "id": "1722601e02127a14",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueC2",
         "rules": [
             {
@@ -6174,9 +5917,9 @@
         ]
     },
     {
-        "id": "9616a313b136546e",
+        "id": "3c9220b4e4e16233",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueC3",
         "rules": [
             {
@@ -6199,9 +5942,9 @@
         ]
     },
     {
-        "id": "b1236b35d17b9460",
+        "id": "279a6a4c9d96d16a",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueV1",
         "rules": [
             {
@@ -6224,9 +5967,9 @@
         ]
     },
     {
-        "id": "b330c07cd837a76f",
+        "id": "8cb3b343836f98d6",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueV2",
         "rules": [
             {
@@ -6249,9 +5992,9 @@
         ]
     },
     {
-        "id": "275b31f19c382b48",
+        "id": "326757dad782e0a8",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueV3",
         "rules": [
             {
@@ -6274,9 +6017,9 @@
         ]
     },
     {
-        "id": "c3542e15cb9f9f82",
+        "id": "b2b2a20c065ca705",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValuePF",
         "rules": [
             {
@@ -6293,15 +6036,15 @@
         "to": "",
         "reg": false,
         "x": 1540,
-        "y": 560,
+        "y": 540,
         "wires": [
             []
         ]
     },
     {
-        "id": "29ac057414da488e",
+        "id": "d1419c0b19a3b774",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueConsumption",
         "rules": [
             {
@@ -6318,15 +6061,15 @@
         "to": "",
         "reg": false,
         "x": 1570,
-        "y": 620,
+        "y": 600,
         "wires": [
             []
         ]
     },
     {
-        "id": "6bfd386bcc92e84a",
+        "id": "299929412e14ab9f",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueReactive",
         "rules": [
             {
@@ -6343,15 +6086,15 @@
         "to": "",
         "reg": false,
         "x": 1560,
-        "y": 700,
+        "y": 660,
         "wires": [
             []
         ]
     },
     {
-        "id": "3e6df771b413f566",
+        "id": "67127821105890f8",
         "type": "change",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "ValueHeartbeat",
         "rules": [
             {
@@ -6368,15 +6111,15 @@
         "to": "",
         "reg": false,
         "x": 1560,
-        "y": 780,
+        "y": 720,
         "wires": [
             []
         ]
     },
     {
-        "id": "e6a84f590a4189f8",
+        "id": "9607f7cab89015ae",
         "type": "inject",
-        "z": "29bbc5778a16785f",
+        "z": "14f49ae6c62c7049",
         "name": "",
         "props": [
             {
@@ -6394,11 +6137,1208 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1090,
-        "y": 900,
+        "x": 230,
+        "y": 960,
         "wires": [
             [
-                "3e6df771b413f566"
+                "67127821105890f8",
+                "ce645ca569cb90ef",
+                "78c61c1db515ba64"
+            ]
+        ]
+    },
+    {
+        "id": "66e98ce0c2160cc1",
+        "type": "comment",
+        "z": "14f49ae6c62c7049",
+        "name": "Digital Inputs",
+        "info": "",
+        "x": 330,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "ea276815759dd663",
+        "type": "rpi-gpio in",
+        "z": "14f49ae6c62c7049",
+        "name": "DI0",
+        "pin": "13",
+        "intype": "tri",
+        "debounce": "10",
+        "read": true,
+        "bcm": true,
+        "x": 310,
+        "y": 1200,
+        "wires": [
+            [
+                "9d77bd7dbf1c7c84"
+            ]
+        ]
+    },
+    {
+        "id": "2c32a863f20f8cd2",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DI0",
+        "tooltip": "",
+        "group": "1898cd1cd6c1a552",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "radio_button_checked",
+        "oncolor": "#FFC107",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "radio_button_unchecked",
+        "offcolor": "#44739E",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d77bd7dbf1c7c84",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "Int to Bool",
+        "func": "if (msg.payload == 0) {\n    msg.payload = false;\n} else {\n    msg.payload = true;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1200,
+        "wires": [
+            [
+                "2c32a863f20f8cd2",
+                "5491b8c45cce8637"
+            ]
+        ]
+    },
+    {
+        "id": "79aa040e5d547204",
+        "type": "rpi-gpio in",
+        "z": "14f49ae6c62c7049",
+        "name": "DI1",
+        "pin": "17",
+        "intype": "tri",
+        "debounce": "10",
+        "read": true,
+        "bcm": true,
+        "x": 310,
+        "y": 1260,
+        "wires": [
+            [
+                "5e96a9e9a3320bf7"
+            ]
+        ]
+    },
+    {
+        "id": "1f038f2e9d60a736",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DI1",
+        "tooltip": "",
+        "group": "1898cd1cd6c1a552",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "radio_button_checked",
+        "oncolor": "#FFC107",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "radio_button_unchecked",
+        "offcolor": "#44739E",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e96a9e9a3320bf7",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "Int to Bool",
+        "func": "if (msg.payload == 0) {\n    msg.payload = false;\n} else {\n    msg.payload = true;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1260,
+        "wires": [
+            [
+                "1f038f2e9d60a736",
+                "65cfdb52e8a3b4ad"
+            ]
+        ]
+    },
+    {
+        "id": "7853445e2f068237",
+        "type": "rpi-gpio in",
+        "z": "14f49ae6c62c7049",
+        "name": "DI2",
+        "pin": "22",
+        "intype": "tri",
+        "debounce": "10",
+        "read": true,
+        "bcm": true,
+        "x": 310,
+        "y": 1320,
+        "wires": [
+            [
+                "91af11b6e189a49c"
+            ]
+        ]
+    },
+    {
+        "id": "3ce626822679b66c",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DI2",
+        "tooltip": "",
+        "group": "1898cd1cd6c1a552",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "radio_button_checked",
+        "oncolor": "#FFC107",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "radio_button_unchecked",
+        "offcolor": "#44739E",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "91af11b6e189a49c",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "Int to Bool",
+        "func": "if (msg.payload == 0) {\n    msg.payload = false;\n} else {\n    msg.payload = true;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1320,
+        "wires": [
+            [
+                "3ce626822679b66c",
+                "8c6ce2199acd5b78"
+            ]
+        ]
+    },
+    {
+        "id": "9ec0c29a93074bd1",
+        "type": "rpi-gpio in",
+        "z": "14f49ae6c62c7049",
+        "name": "DI3",
+        "pin": "27",
+        "intype": "tri",
+        "debounce": "10",
+        "read": true,
+        "bcm": true,
+        "x": 310,
+        "y": 1380,
+        "wires": [
+            [
+                "8401d9f0616bcbbe"
+            ]
+        ]
+    },
+    {
+        "id": "6a6ff7d63fc391a3",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DI3",
+        "tooltip": "",
+        "group": "1898cd1cd6c1a552",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "radio_button_checked",
+        "oncolor": "#FFC107",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "radio_button_unchecked",
+        "offcolor": "#44739E",
+        "animate": false,
+        "className": "",
+        "x": 670,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8401d9f0616bcbbe",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "Int to Bool",
+        "func": "if (msg.payload == 0) {\n    msg.payload = false;\n} else {\n    msg.payload = true;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1380,
+        "wires": [
+            [
+                "6a6ff7d63fc391a3",
+                "0d667e2422971849"
+            ]
+        ]
+    },
+    {
+        "id": "e1bda9b8b60fef18",
+        "type": "comment",
+        "z": "14f49ae6c62c7049",
+        "name": "Digital Outputs",
+        "info": "",
+        "x": 340,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "bc595765bf2a8adb",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DO0",
+        "tooltip": "",
+        "group": "c5b6031b4031158d",
+        "order": 1,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1540,
+        "wires": [
+            [
+                "7012153cb65bb414",
+                "2add447d0bcab508"
+            ]
+        ]
+    },
+    {
+        "id": "7012153cb65bb414",
+        "type": "rpi-gpio out",
+        "z": "14f49ae6c62c7049",
+        "name": "DO0 Output",
+        "pin": "23",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 490,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "baf3170bdaefd797",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DO1",
+        "tooltip": "",
+        "group": "c5b6031b4031158d",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1600,
+        "wires": [
+            [
+                "c95b1952ce127c07",
+                "421d9db7cc4d9b6f"
+            ]
+        ]
+    },
+    {
+        "id": "c95b1952ce127c07",
+        "type": "rpi-gpio out",
+        "z": "14f49ae6c62c7049",
+        "name": "DO1 Output",
+        "pin": "24",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 490,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "3cff1bc3b38ac3fa",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DO2",
+        "tooltip": "",
+        "group": "c5b6031b4031158d",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1660,
+        "wires": [
+            [
+                "b08cef23a3d4899d",
+                "e5518a105928bf57"
+            ]
+        ]
+    },
+    {
+        "id": "b08cef23a3d4899d",
+        "type": "rpi-gpio out",
+        "z": "14f49ae6c62c7049",
+        "name": "DO2 Output",
+        "pin": "25",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 490,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "02258ed04530c397",
+        "type": "ui_switch",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "label": "DO3",
+        "tooltip": "",
+        "group": "c5b6031b4031158d",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 310,
+        "y": 1720,
+        "wires": [
+            [
+                "05c9c74494414e7e",
+                "a9dd61aa781fbb6f"
+            ]
+        ]
+    },
+    {
+        "id": "05c9c74494414e7e",
+        "type": "rpi-gpio out",
+        "z": "14f49ae6c62c7049",
+        "name": "DO3 Output",
+        "pin": "26",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 490,
+        "y": 1720,
+        "wires": []
+    },
+    {
+        "id": "2652e0aec15d8857",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DI1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DI1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb66f836b81e0999",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DI2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DI2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aad3c5943060de7d",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DI3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DI3",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8f970f3bb8660b12",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DI4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DI4",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "494b0dd79e7996f9",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DO1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DO1",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8ae568726dd2232",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DO2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DO2",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "603e3071e2c8474d",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DO3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DO3",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88a7fe421f61b1b2",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "name": "DO4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "DO4",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5491b8c45cce8637",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1160,
+        "wires": [
+            [
+                "2652e0aec15d8857"
+            ]
+        ]
+    },
+    {
+        "id": "65cfdb52e8a3b4ad",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1240,
+        "wires": [
+            [
+                "eb66f836b81e0999"
+            ]
+        ]
+    },
+    {
+        "id": "8c6ce2199acd5b78",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1300,
+        "wires": [
+            [
+                "aad3c5943060de7d"
+            ]
+        ]
+    },
+    {
+        "id": "0d667e2422971849",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1380,
+        "wires": [
+            [
+                "8f970f3bb8660b12"
+            ]
+        ]
+    },
+    {
+        "id": "2add447d0bcab508",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1520,
+        "wires": [
+            [
+                "494b0dd79e7996f9"
+            ]
+        ]
+    },
+    {
+        "id": "421d9db7cc4d9b6f",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1580,
+        "wires": [
+            [
+                "d8ae568726dd2232"
+            ]
+        ]
+    },
+    {
+        "id": "e5518a105928bf57",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1660,
+        "wires": [
+            [
+                "603e3071e2c8474d"
+            ]
+        ]
+    },
+    {
+        "id": "a9dd61aa781fbb6f",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 850,
+        "y": 1740,
+        "wires": [
+            [
+                "88a7fe421f61b1b2"
+            ]
+        ]
+    },
+    {
+        "id": "b91ce1eff2e37366",
+        "type": "rising-edge",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "pass message if power above 1000",
+        "threshold": "1000",
+        "x": 1320,
+        "y": 940,
+        "wires": [
+            [
+                "d4dbbebd2e8d38b5"
+            ]
+        ]
+    },
+    {
+        "id": "d4dbbebd2e8d38b5",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "update partCount and machineStatus",
+        "func": "let partCount = global.get(\"ValuePartCount\") || 0;\npartCount++;\nglobal.set(\"ValuePartCount\", partCount);\nglobal.set(\"ValueMachineStatus\", 2);\nglobal.set(\"ValueLastPart\", Date.now());\nmsg.payload = partCount;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5937ba0bf7e77158",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1090,
+        "y": 120,
+        "wires": [
+            [
+                "279a6a4c9d96d16a"
+            ]
+        ]
+    },
+    {
+        "id": "b18a622ede7deb86",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1090,
+        "y": 180,
+        "wires": [
+            [
+                "8cb3b343836f98d6"
+            ]
+        ]
+    },
+    {
+        "id": "bbb0e5f25eda5beb",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 240,
+        "wires": [
+            [
+                "326757dad782e0a8"
+            ]
+        ]
+    },
+    {
+        "id": "11386f318995ccfe",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 300,
+        "wires": [
+            [
+                "d67127bea71032a2"
+            ]
+        ]
+    },
+    {
+        "id": "907570311e18ef56",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 360,
+        "wires": [
+            [
+                "1722601e02127a14"
+            ]
+        ]
+    },
+    {
+        "id": "af07b7d5af4b1a82",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 420,
+        "wires": [
+            [
+                "3c9220b4e4e16233"
+            ]
+        ]
+    },
+    {
+        "id": "937f985360f2bdf7",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 480,
+        "wires": [
+            [
+                "f2cf401fa6603d39"
+            ]
+        ]
+    },
+    {
+        "id": "7ead14cd5b6380b2",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 540,
+        "wires": [
+            [
+                "b2b2a20c065ca705"
+            ]
+        ]
+    },
+    {
+        "id": "382e88a502939452",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "function 7",
+        "func": "var bigInt = global.get('bigInt');\nmsg.payload = bigInt.fromArray([...msg.payload], 4);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 780,
+        "wires": [
+            [
+                "a910293d64b00f5f"
+            ]
+        ]
+    },
+    {
+        "id": "a910293d64b00f5f",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1130,
+        "y": 780,
+        "wires": [
+            [
+                "d1419c0b19a3b774"
+            ]
+        ]
+    },
+    {
+        "id": "bc8a36cc93b4280f",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "ValueMachineStatus",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ValueMachineStatus",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1580,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce645ca569cb90ef",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "check whether machine running or not",
+        "func": "let ValueLastPart = global.get(\"ValueLastPart\") || 0;\n\nif(Date.now() - ValueLastPart > 20000){\n    msg.payload = 1;\n    global.set(\"ValueMachineStatus\", 1);\n}else{\n    msg.payload = 2;\n    global.set(\"ValueMachineStatus\", 1);    \n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 1060,
+        "wires": [
+            [
+                "39ca0b7bcb732148"
+            ]
+        ]
+    },
+    {
+        "id": "3dd2dc9346f2823b",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 1000,
+        "wires": [
+            [
+                "458f097315ed659c"
+            ]
+        ]
+    },
+    {
+        "id": "39ca0b7bcb732148",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "",
+        "path": "",
+        "x": 1110,
+        "y": 1060,
+        "wires": [
+            [
+                "bc8a36cc93b4280f"
+            ]
+        ]
+    },
+    {
+        "id": "78c61c1db515ba64",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "check partCount",
+        "func": "msg.payload = global.get(\"ValuePartCount\") || 0;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1000,
+        "wires": [
+            [
+                "3dd2dc9346f2823b"
+            ]
+        ]
+    },
+    {
+        "id": "458f097315ed659c",
+        "type": "change",
+        "z": "14f49ae6c62c7049",
+        "g": "61f9b802121fe5bc",
+        "name": "ValuePartCount",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ValuePartCount",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cddfc570691b07fe",
+        "type": "pm5000",
+        "z": "14f49ae6c62c7049",
+        "name": "Reactive",
+        "unitId": "1",
+        "data": "toEnergyReactImp",
+        "x": 380,
+        "y": 840,
+        "wires": [
+            [
+                "e0330b2d27a1f0e1"
+            ]
+        ]
+    },
+    {
+        "id": "e0330b2d27a1f0e1",
+        "type": "modbus-flex-getter",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "4e690410af9a63a9",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 610,
+        "y": 840,
+        "wires": [
+            [
+                "b6816ad946ae5d54"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b6816ad946ae5d54",
+        "type": "function",
+        "z": "14f49ae6c62c7049",
+        "name": "function 8",
+        "func": "var bigInt = global.get('bigInt');\nmsg.payload = bigInt.fromArray([...msg.payload], 4);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 840,
+        "wires": [
+            [
+                "cddc89d8d4b82005"
+            ]
+        ]
+    },
+    {
+        "id": "cddc89d8d4b82005",
+        "type": "show-value",
+        "z": "14f49ae6c62c7049",
+        "name": "",
+        "path": "",
+        "x": 1130,
+        "y": 840,
+        "wires": [
+            [
+                "299929412e14ab9f"
             ]
         ]
     },
