@@ -115,8 +115,8 @@ sudo nmcli con add type wifi con-name "test" ifname wlan0 ssid "loh&low" wifi-se
 sudo nmcli connection modify 'Wired connection 2'  ipv4.method manual   ipv4.addresses $ETH1'/24'
 
 
-nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden yes
-nmcli con modify IOT wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
+sudo nmcli con add type wifi con-name IOT ifname wlan0 ssid STENGGGRP-MDS wifi.hidden yes
+sudo nmcli con modify IOT wifi-sec.key-mgmt wpa-psk wifi-sec.psk $PASSKEY
 
 
 sudo systemctl restart nodered.service
@@ -136,5 +136,6 @@ cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 
 echo "It will take some times to reboot."
+
 
 
