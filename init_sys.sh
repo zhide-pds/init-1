@@ -63,6 +63,16 @@ echo
 
 sudo apt-get install -y iptables-persistent 
 
+# Download Netcat
+echo
+echo
+echo "#################"
+echo "Downloading and setting up Netcat"
+echo "#################"
+echo
+sudo apt install netcat-openbsd
+
+
 # Install ansible
 #echo "################"
 #echo "Installing Ansible"
@@ -136,6 +146,7 @@ cat /sys/class/net/eth0/address
 echo "Please reboot for the changes to take effect."
 
 echo "It will take some times to reboot."
+
 
 
 
