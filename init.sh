@@ -62,6 +62,14 @@ echo
 
 sudo apt-get install -y iptables-persistent 
 
+# Download Netcat
+echo
+echo
+echo "#################"
+echo "Downloading and setting up Netcat"
+echo "#################"
+echo
+sudo apt install netcat-openbsd
 
 # Install cert
 echo
