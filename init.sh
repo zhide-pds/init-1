@@ -1,8 +1,8 @@
 #!/bin/bash
 
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/default.json
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
-curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
+#curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/iptable.txt
+#curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/sysctl.conf
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/chosen.crt
 curl -LO https://raw.githubusercontent.com/zhide-pds/init-1/refs/heads/main/settings.js
 
@@ -52,24 +52,24 @@ sudo systemctl start vncserver-x11-serviced
 
 
 # Download Iptables
-echo
-echo
-echo "#################"
-echo "Downloading and setting up port forwarding"
-echo "#################"
-echo
+#echo
+#echo
+#echo "#################"
+#echo "Downloading and setting up port forwarding"
+#echo "#################"
+#echo
 
 
-sudo apt-get install -y iptables-persistent 
+#sudo apt-get install -y iptables-persistent 
 
 # Download Netcat
-echo
-echo
-echo "#################"
-echo "Downloading and setting up Netcat"
-echo "#################"
-echo
-sudo apt install netcat-openbsd
+#echo
+#echo
+#echo "#################"
+#echo "Downloading and setting up Netcat"
+#echo "#################"
+#echo
+#sudo apt install netcat-openbsd
 
 # Install cert
 echo
