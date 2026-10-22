@@ -92,23 +92,23 @@ echo "################"
 echo
 
 
-cd /home/pi/.node-red
+#cd /home/pi/.node-red
 
-npm install big-integer
-npm install node-red-contrib-opcua-server
-npm install node-red-contrib-opcua
-npm install node-red-omronplc
-npm install node-red-contrib-omron-fins
-npm install node-red-show-value
-npm install node-red-contrib-modbus
-npm install @serafintech/node-red-contrib-eip-io
-npm install node-red-contrib-schneider-powerlogic
-npm install node-red-contrib-network-tools
-npm install node-red-contrib-thingrest
-npm install node-red-contrib-edge-trigger
-npm install node-red-contrib-persistent-global-context
-npm install node-red-contrib-siemens-sentron
-npm install node-red-contrib-s7
+#npm install big-integer
+#npm install node-red-contrib-opcua-server
+#npm install node-red-contrib-opcua
+#npm install node-red-omronplc
+#npm install node-red-contrib-omron-fins
+#npm install node-red-show-value
+#npm install node-red-contrib-modbus
+#npm install @serafintech/node-red-contrib-eip-io
+#npm install node-red-contrib-schneider-powerlogic
+#npm install node-red-contrib-network-tools
+#npm install node-red-contrib-thingrest
+#npm install node-red-contrib-edge-trigger
+#npm install node-red-contrib-persistent-global-context
+#npm install node-red-contrib-siemens-sentron
+#npm install node-red-contrib-s7
 
 sudo mv /home/pi/settings.js settings.js
 sudo mv /home/pi/default.json flows.json 
