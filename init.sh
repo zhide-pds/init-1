@@ -15,13 +15,13 @@ echo "SET Hostname and Wifi Country to SG"
 echo "#################"
 echo
 
-read -p "Please enter your new hostname: " hn
+#read -p "Please enter your new hostname: " hn
 
-sudo cp /etc/hosts /etc/hosts.bak
-OLD_HOSTNAME=$(hostname)
+#sudo cp /etc/hosts /etc/hosts.bak
+#OLD_HOSTNAME=$(hostname)
 
 #sudo hostnamectl set-hostname $hostname
-sudo raspi-config nonint do_hostname $hn
+#sudo raspi-config nonint do_hostname $hn
 
 COUNTRY_CODE="SG"
 WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
